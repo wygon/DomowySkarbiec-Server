@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:64737",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\wygon\\source\\repos\\TukanTomek\\TukanTomek.Server\\..\\tukantomek.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

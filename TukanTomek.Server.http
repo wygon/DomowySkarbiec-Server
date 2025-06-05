@@ -1,0 +1,61 @@
+###
+GET http://localhost:5051/api/users
+
+###
+GET http://localhost:5051/api/family/
+
+###
+POST http://localhost:5051/api/users
+Content-Type: application/json
+
+{
+  "name": "Wygon",
+  "email": "test@example.com",
+  "familyId" : null
+}
+###
+GET  http://localhost:5051/api/family/2
+
+
+###
+POST http://localhost:5051/api/family/
+Content-Type: application/json
+
+{
+  "name": "Kowalscy",
+  "wage": 0
+}
+###
+PUT http://localhost:5051/api/users/15
+Content-Type: application/json
+
+{
+  "id": 15,
+  "name": "Wygon",
+  "email": "wygon@example.com"
+}
+
+###
+POST http://localhost:5051/api/transaction
+Content-Type: application/json
+
+{
+  "type": "Dochód",
+  "userId": 2,
+  "value": 123
+}
+
+###
+GET http://localhost:5051/api/users/3
+
+###
+GET http://localhost:5051/api/users/4/family
+
+###
+GET http://localhost:5051/api/family/1
+
+###
+GET http://localhost:5051/api/family/1/users
+
+###
+GET http://localhost:5051/api/transaction/family/2
