@@ -47,6 +47,15 @@ namespace TukanTomek.Server.Controllers
 
             return Ok(users);
         }
+        [HttpGet("{familyId}/users-with-transactions")]
+        public async Task<ActionResult> GetFamilyUsersWithTransactions(int familyId)
+        {
+            var users = await _service.GetFamilyUsersWithTransactionsAsync(familyId);
+            if (users == null)
+                return NotFound();
+
+            return Ok(users);
+        }
 
         [HttpPost]
         public async Task<ActionResult<FamilyDto>> Create(FamilyDto dto)
@@ -68,6 +77,7 @@ namespace TukanTomek.Server.Controllers
 
             return Ok(updatedFamily);
         }
+        
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using TukanTomek.Server.DTOs.FamilyDtos;
+﻿using TukanTomek.Server.DTOs.FamilyDtos;
 using TukanTomek.Server.DTOs.UserDtos;
 using TukanTomek.Server.Models;
 using TukanTomek.Server.Repositories.Interfaces;
@@ -10,9 +9,11 @@ namespace TukanTomek.Server.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _repository;
-        public UserService(IUserRepository repository)
+        private readonly IFamilyService _familyService;
+        public UserService(IUserRepository repository, IFamilyService famiylService)
         {
             _repository = repository;
+            _familyService=famiylService;
         }
 
         public async Task<IEnumerable<UserDto>> GetAllAsync()
@@ -67,14 +68,18 @@ namespace TukanTomek.Server.Services
         public async Task<UserDto?> UpdateAsync(int id, UserDto dto)
         {
             var user = await _repository.GetByIdAsync(id);
-            if(user == null) return null;   
-            
+            if(user == null) return null;
+
+            var familyId = user.FamilyId  ?? 0;
+
             user.Name = dto.Name;
             user.Email = dto.Email;
             user.FamilyId = dto.FamilyId;
 
             _repository.Update(user);
             await _repository.SaveChangesAsync();
+
+            if (familyId != 0) await CheckAndDeleteEmptyFamily(familyId);
 
             return MapToReadDto(user);
         }
@@ -88,6 +93,15 @@ namespace TukanTomek.Server.Services
             await _repository.SaveChangesAsync();
 
             return true;
+        }
+
+        private async Task CheckAndDeleteEmptyFamily(int familyId)
+        {
+            var users = await _familyService.GetAllFamilyUsersAsync(familyId);
+            if (!users.Any())
+            {
+                await _familyService.DeleteAsync(familyId);
+            }
         }
         UserDto MapToReadDto(User user)
         {

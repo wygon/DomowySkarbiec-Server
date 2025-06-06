@@ -1,5 +1,5 @@
 ###
-GET http://localhost:5051/api/users
+GET http://localhost:5051/api/users/1
 
 ###
 GET http://localhost:5051/api/family/
@@ -14,7 +14,7 @@ Content-Type: application/json
   "familyId" : null
 }
 ###
-GET  http://localhost:5051/api/family/2
+GET  http://localhost:5051/api/users/2/family
 
 
 ###
@@ -26,13 +26,14 @@ Content-Type: application/json
   "wage": 0
 }
 ###
-PUT http://localhost:5051/api/users/15
+PUT http://localhost:5051/api/users/1
 Content-Type: application/json
 
 {
-  "id": 15,
-  "name": "Wygon",
-  "email": "wygon@example.com"
+  "id": 1,
+  "name": "Jan Kowalski",
+  "email": "jan.kowalski@gmail.com",
+  "familyId": 2
 }
 
 ###
@@ -52,10 +53,11 @@ GET http://localhost:5051/api/users/3
 GET http://localhost:5051/api/users/4/family
 
 ###
-GET http://localhost:5051/api/family/1
+GET http://localhost:5051/api/family/2
 
 ###
-GET http://localhost:5051/api/family/1/users
+GET http://localhost:5051/api/family/2/users
 
 ###
-GET http://localhost:5051/api/transaction/family/2
+
+GET http://localhost:5051/api/family/5/users-with-transactions

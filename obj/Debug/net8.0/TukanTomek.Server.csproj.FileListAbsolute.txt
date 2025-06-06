@@ -285,3 +285,4 @@ C:\Users\wygon\source\repos\TukanTomek\TukanTomek.Server\obj\Debug\net8.0\refint
 C:\Users\wygon\source\repos\TukanTomek\TukanTomek.Server\obj\Debug\net8.0\TukanTomek.Server.pdb
 C:\Users\wygon\source\repos\TukanTomek\TukanTomek.Server\obj\Debug\net8.0\TukanTomek.Server.genruntimeconfig.cache
 C:\Users\wygon\source\repos\TukanTomek\TukanTomek.Server\obj\Debug\net8.0\ref\TukanTomek.Server.dll
+C:\Users\wygon\source\repos\TukanTomek\TukanTomek.Server\obj\Debug\net8.0\TukanTomek.Server.sourcelink.json

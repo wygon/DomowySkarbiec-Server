@@ -28,8 +28,8 @@ namespace TukanTomek.Server
             });
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddScoped<IFamilyService, FamilyService>();
-            builder.Services.AddScoped<IFamilyRepository, FamilyRepository>();
+            builder.Services.AddScoped<Services.Interfaces.IFamilyService, FamilyService>();
+            builder.Services.AddScoped<Repositories.Interfaces.IFamilyRepository, FamilyRepository>();
             builder.Services.AddScoped<ITransactionService, TransactionService>();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 

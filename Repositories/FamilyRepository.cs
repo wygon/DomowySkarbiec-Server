@@ -28,10 +28,10 @@ namespace TukanTomek.Server.Repositories
         }
         public async Task<Family?> GetByIdAsync(int id)
         {
-            //return await _context.Families.FindAsync(id);
-            return await _context.Families
-                .Include(f => f.Users)
-                .FirstOrDefaultAsync();
+            return await _context.Families.FindAsync(id);
+            //return await _context.Families
+            //    .Include(f => f.Users)
+            //    .FirstOrDefaultAsync();
         }
 
         public async Task<Family?> GetByNameAsync(string name)
@@ -52,7 +52,6 @@ namespace TukanTomek.Server.Repositories
         {
             _context.Families.Remove(family);
         }
-
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

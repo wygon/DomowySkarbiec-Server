@@ -8,5 +8,6 @@
 
         public int? FamilyId { get; set; }
         public Family? Family { get; set; }
+        //public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }
