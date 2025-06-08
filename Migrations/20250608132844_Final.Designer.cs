@@ -12,8 +12,8 @@ using TukanTomek.Server.Data;
 namespace TukanTomek.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250606192712_UserFamilyRoleMigrationFix")]
-    partial class UserFamilyRoleMigrationFix
+    [Migration("20250608132844_Final")]
+    partial class Final
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
