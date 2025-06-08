@@ -7,6 +7,7 @@ namespace TukanTomek.Server.DTOs.UserDtos
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string? FamilyRole { get; set; }
         public List<TransactionDto> Transactions { get; set; } = new();
     }
 }

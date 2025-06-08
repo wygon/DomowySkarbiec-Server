@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TukanTomek.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f5438d2fe75733b8a64e2d330d6828686969566")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82ba35f4d0148cf759648897093d1b994ad0a7f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TukanTomek.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TukanTomek.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

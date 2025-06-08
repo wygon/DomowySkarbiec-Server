@@ -2,7 +2,6 @@
 using TukanTomek.Server.DTOs.TransactionDtos;
 using TukanTomek.Server.DTOs.UserDtos;
 using TukanTomek.Server.Models;
-using TukanTomek.Server.Repositories;
 using TukanTomek.Server.Repositories.Interfaces;
 using TukanTomek.Server.Services.Interfaces;
 
@@ -47,18 +46,14 @@ namespace TukanTomek.Server.Services
         }
         public async Task<FamilyWithUsersDto?> GetFamilyUsersWithTransactionsAsync(int familyId)
         {
-            Console.WriteLine($"\n\n\n🔍 SERVICE START: familyId parameter = {familyId}");
             var family = await _repository.GetByIdAsync(familyId);
             if (family == null) return null;
-            Console.WriteLine($"✅ SERVICE: Znaleziono rodzinę: {family.Name} (ID: {family.Id}, Wage: {family.Wage})");
             var familyMembers = await _repository.GetAllFamilyUsersAsync(family.Id);
             if(familyMembers == null) return null;
-            Console.WriteLine($"👥 SERVICE: Rodzina {family.Id} ma {familyMembers.Count()} członków");
             var usersWithTransaction = new List<UserWithTransactionsDto>();
 
             foreach(var member in familyMembers)
             {
-                Console.WriteLine($"👤 SERVICE: Przetwarzam: {member.Name} (ID: {member.Id}, FamilyId: {member.FamilyId})");
                 var transactions = await _transactionRepository.GetByUserIdAsync(member.Id);
 
                 var userDto = new UserWithTransactionsDto
@@ -66,6 +61,7 @@ namespace TukanTomek.Server.Services
                     Id = member.Id,
                     Name = member.Name,
                     Email = member.Email,
+                    FamilyRole = member.FamilyRole,
                     Transactions = transactions.Select(t => new TransactionDto
                     {
                         Id = t.Id,
@@ -85,7 +81,6 @@ namespace TukanTomek.Server.Services
                 Wage = family.Wage,
                 Users = usersWithTransaction,
             };
-            Console.WriteLine($"📤 SERVICE END: Zwracam rodzinę '{result.Name}' (ID: {result.Id}) z {result.Users.Count} użytkownikami");
             return result;
         }
 

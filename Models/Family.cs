@@ -9,5 +9,6 @@ namespace TukanTomek.Server.Models
         public double Wage { get; set; }
 
         public IEnumerable<User>? Users { get; set; }
+
     }
 }

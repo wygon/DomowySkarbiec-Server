@@ -41,6 +41,7 @@ namespace TukanTomek.Server.Services
                     Id = u.Id,
                     Name = u.Name,
                     Email = u.Email,
+                    FamilyRole = u.FamilyRole,
                     FamilyId = u.FamilyId,
                 }),
                 UsersId = family.Users.Select(u => u.Id),
@@ -56,6 +57,7 @@ namespace TukanTomek.Server.Services
             {
                 Name = dto.Name,
                 Email = dto.Email,
+                FamilyRole = dto.FamilyRole,
                 FamilyId = dto.FamilyId,
             };
 
@@ -74,6 +76,7 @@ namespace TukanTomek.Server.Services
 
             user.Name = dto.Name;
             user.Email = dto.Email;
+            user.FamilyRole = dto.FamilyRole;
             user.FamilyId = dto.FamilyId;
 
             _repository.Update(user);
@@ -110,6 +113,7 @@ namespace TukanTomek.Server.Services
                 Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
+                FamilyRole = user.FamilyRole,
                 FamilyId = user.FamilyId,
             };
         }

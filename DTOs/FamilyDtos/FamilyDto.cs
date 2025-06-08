@@ -10,5 +10,6 @@ namespace TukanTomek.Server.DTOs.FamilyDtos
 
         public IEnumerable<int>? UsersId { get; set; }
         public IEnumerable<UserDto>? Users { get; set; }
+
     }
 }
